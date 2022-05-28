@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/android/add-note-screen.spec.js'
+        './test/specs/ios/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -52,24 +52,22 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-    
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        // maxInstances: 5,
-        // //
-        // browserName: 'chrome',
-        // acceptInsecureCerts: true,
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-        platformName: "Android",
-        "appium:deviceName": "Pixel_4_API_30",
-        "appium:platformVersion": "11.0",
-        "appium:automationName": "UiAutomator2", 
-        "appium:app": path.join(process.cwd(), "app\\android\\ColorNote+Notepad.apk"),
+    capabilities: [
+    //     {
+    //     platformName: "Android",
+    //     "appium:deviceName": "Pixel_4_API_30",
+    //     "appium:platformVersion": "11.0",
+    //     "appium:automationName": "UiAutomator2", 
+    //     "appium:app": path.join(process.cwd(), "app\\android\\ColorNote+Notepad.apk"),
+    //     "appium:autoGrantPermissions": true
+    //     // "appium:app": "C:/Users/AndUser.DESKTOP-SOGF67O/Desktop/appium/webdriverio-appium/app/android/ApiDemos-debug.apk"
+    // }
+    {
+        platformName: "ios",
+        "appium:deviceName": "iPhone 13 mini",
+        "appium:platformVersion": "15.5",
+        "appium:automationName": "XCUITest", 
+        "appium:app": path.join(process.cwd(), "app/ios/UIKitCatalog.app/UIKitCatalog.app"),
         "appium:autoGrantPermissions": true
         // "appium:app": "C:/Users/AndUser.DESKTOP-SOGF67O/Desktop/appium/webdriverio-appium/app/android/ApiDemos-debug.apk"
     }],
