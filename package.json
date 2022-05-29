@@ -18,6 +18,7 @@
     "@wdio/appium-service": "^7.19.5",
     "@wdio/local-runner": "^7.19.5",
     "@wdio/mocha-framework": "^7.19.5",
-    "@wdio/spec-reporter": "^7.19.5"
+    "@wdio/spec-reporter": "^7.19.5",
+    "appium-xcuitest-driver": "^4.4.2"
   }
 }
