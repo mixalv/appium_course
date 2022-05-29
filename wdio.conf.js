@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/ios/native*.js'
+        './test/specs/ios/todo-list-screen*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -67,7 +67,7 @@ exports.config = {
         "appium:deviceName": "iPhone 13 mini",
         "appium:platformVersion": "15.5",
         "appium:automationName": "XCUITest", 
-        "appium:app": path.join(process.cwd(), "app/ios/UIKitCatalog.app/UIKitCatalog.app"),
+        "appium:app": path.join(process.cwd(), "app/ios/MVCTodo.app/MVCTodo.app"),
         "appium:autoGrantPermissions": true
         // "appium:app": "C:/Users/AndUser.DESKTOP-SOGF67O/Desktop/appium/webdriverio-appium/app/android/ApiDemos-debug.apk"
     }],

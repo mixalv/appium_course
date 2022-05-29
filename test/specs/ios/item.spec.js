@@ -1,0 +1,20 @@
+describe('item', () => {
+    it('create item', async () => {
+        await $('//*[@value="Create list"]').click()
+        await $('//*[@value="List Name"]').addValue("Things to do")
+        await $('~Create').click()
+        const list = await $('~Things to do')
+        await expect(list).toBeExisting()
+        await list.click()
+        await $('//XCUIElementTypeStaticText[@name="Create item"]').click()
+        await $('//*[@value="Title"]').addValue('some title')
+        await $('//*[@value="Due"]').click()
+        await $('~Date Picker').click()
+        await $('~30').click()
+        await $('//XCUIElementTypeAlert[@name="Add To Do"]').click()
+        await $('~Create').click()
+        await expect(await $('~some title')).toBeExisting()
+        await expect(await $('~Due Tomorrow')).toBeExisting()
+
+    })
+})
