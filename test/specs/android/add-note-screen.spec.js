@@ -2,12 +2,14 @@ const addNoteScreen = require("../../screenobjects/android/add-note.screen")
 const deleteNoteScreen = require("../../screenobjects/android/delete-note.screen")
 
 describe('Add notes', () => {
-  it('skip button', async () => {
+  before(async () => {
     await addNoteScreen.skipButton
-      .click()
+    .click()
+    await deleteNoteScreen.addNewNote('sp title', 'sp text\n new like')
+    await driver.back()
   })
 
-  it('add and delete a new note', async () => {
+  it('add a new note', async () => {
     const title = 'some title'
     addNoteScreen.noteTitle = title
     const text = 'some text\ntext on next line'
@@ -25,9 +27,8 @@ describe('Add notes', () => {
   })
 
   it.only('delete note', async () => {
-    await deleteNoteScreen.skipTutorial()
-    await deleteNoteScreen.addNewNote('sp title', 'sp text\n new like')
-    await driver.back()
+    
+
     await deleteNoteScreen.elementByTitle.click()
     await deleteNoteScreen.moreBtn.click()
     await deleteNoteScreen.deleteBtn.click()
